@@ -1,0 +1,49 @@
+# Environment files (protects API keys)
+.env
+.env.local
+.env*.local
+
+# Virtual environment files
+.venv/
+venv/
+ENV/
+
+# Python cache and build files
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Dependency directories
+node_modules/
+
+# Local development files
+*.bak
+*.tmp
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Testing/coverage files
+.coverage
+htmlcov/
+.pytest_cache/
+
+# macOS system files
+.DS_Store
