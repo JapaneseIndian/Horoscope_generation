@@ -5,6 +5,7 @@ import random as r
 from pathlib import Path
 from flask_cors import CORS
 import json
+from typing import List, Dict
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage, SystemMessage
@@ -20,6 +21,7 @@ CORS(app)
 env_path = Path(__file__).parent / '.env'
 load_dotenv(dotenv_path=env_path, verbose=True)
 DATA_FILE = "horoscope_data.json"
+TAROT_FILE = "tarot_cards.json"
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
@@ -61,15 +63,12 @@ else:
 RAG_PROMPT = ChatPromptTemplate.from_messages([
     SystemMessage(content="""You are a mystical astrologer. Generate horoscopes by combining:
     - The user's zodiac sign characteristics
-    - Current astrological transits and aspects
-    - General astrological knowledge
-    - The specific category requested
-    
-    Make it 3-4 sentences, poetic but not vague. Include astrological terminology where appropriate."""),
-    ("human", """Context information:
-    {context}
-
+    - Current astrological transits
+    - The requested category
+    - Optional tarot card insights when available"""),
+    ("human", """Context: {context}
     Generate a {category} horoscope for {sign} today ({current_date}).
+    {tarot_context}
     Tone: {tone}""")
 ])
 
@@ -88,17 +87,25 @@ def format_docs(docs):
         print(f"Error formatting docs: {e}")
         return "Astrological context currently unavailable"
 
+def extract_text_from_response(response):
+    """Extract text from various response formats"""
+    if isinstance(response, str):
+        return response
+    elif hasattr(response, 'content'):
+        return str(response.content)
+    elif isinstance(response, dict):
+        if 'text' in response:
+            return response['text']
+        elif 'content' in response:
+            return response['content']
+        elif 'message' in response:
+            return response['message']
+        else:
+            return str(response)
+    else:
+        return str(response)
+
 retriever=vector_store.as_retriever(search_kwargs={"k":3})
-ragchain=(
-    {"context": retriever | format_docs, 
-     "sign": RunnablePassthrough(),
-     "category": RunnablePassthrough(),
-     "current_date": RunnablePassthrough(),
-     "tone": RunnablePassthrough()}
-    | RAG_PROMPT
-    | llm
-    | StrOutputParser()
-)
 
 def load_data():
     if os.path.exists(DATA_FILE):
@@ -110,30 +117,103 @@ def save_data(data):
     with open(DATA_FILE, 'w') as f:
         json.dump(data, f, indent=2)
 
-zodiac = ["Aries","Taurus","Gemini","Cancer","Scorpio","Leo","Pisces","Libra","Virgo","Aquarius","Sagittarius","Capricorn"]
+zodiac = ["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"]
 
-def generate(sign: str, category: str) -> str:
-    """Generate a horoscope using RAG with Gemini"""
+def generate(sign: str, category: str, include_tarot: bool = False) -> str:
+    """Generate a horoscope (with optional tarot insights) as a string."""
     try:
-        formatted_prompt = RAG_PROMPT.format(
-            context=format_docs(retriever.invoke(sign)),
-            sign=sign,
-            category=category,
-            current_date=datetime.now().strftime("%Y-%m-%d"),
-            tone="mystical, soothing and magical"
-        )
-        response = llm.invoke(formatted_prompt)
+        tarot_text = ""
+        if include_tarot:
+            tarot_reading = generate_tarot_reading(sign)
+            if isinstance(tarot_reading, dict):
+                tarot_text = f"Tarot Insights: {tarot_reading.get('reading', '')}"
+            else:
+                tarot_text = f"Tarot Insights: {tarot_reading}"
         
-        if hasattr(response, 'content'):
-            return response.content
-        elif isinstance(response, dict):
-            return response.get('text', str(response))
-        return str(response)
+        context_docs = retriever.get_relevant_documents(f"{sign} {category}")
+        context = format_docs(context_docs)
+
+        prompt_text = f"""Context: {context}
+Generate a {category} horoscope for {sign} today ({datetime.now().strftime("%Y-%m-%d")}).
+{tarot_text}
+Tone: mystical and insightful
+
+You are a mystical astrologer. Generate horoscopes by combining:
+- The user's zodiac sign characteristics
+- Current astrological transits
+- The requested category
+- Optional tarot card insights when available"""
         
+        response = llm.invoke(prompt_text)
+        
+        result = extract_text_from_response(response)
+        
+        print(f"DEBUG - Response type: {type(response)}")
+        print(f"DEBUG - Extracted result: {result}")
+        
+        return result
+
     except Exception as e:
-        error_msg = f"The stars are not aligned properly today. (Error: {str(e)})"
+        error_msg = f"✨ The stars are veiled today. (Error: {str(e)})"
         print(f"Generation Error: {error_msg}")
         return error_msg
+    
+def load_tarot_cards() -> List[Dict]:
+    """Load tarot card data with validation"""
+    if not os.path.exists(TAROT_FILE):
+        print(f"Tarot file missing at {TAROT_FILE}")
+        return []
+
+    try:
+        with open(TAROT_FILE, 'r') as f:
+            cards = json.load(f)
+            return cards if isinstance(cards, list) else []
+    except Exception as e:
+        print(f"Tarot load failed: {e}")
+        return []
+
+def generate_tarot_reading(sign: str, spread_type: str = "daily") -> Dict:
+    """Generate a tarot reading and return as a dictionary."""
+    cards = load_tarot_cards()
+    
+
+    if not cards:
+        return {
+            "error": "🔮 The tarot cards are silent today.",
+            "cards": [],
+            "reading": "The mystical deck is currently unavailable."
+        }
+    
+    drawn_cards = r.sample(cards, min(3, len(cards)))
+    
+    try:
+        reading_response = llm.invoke(f"""
+        Interpret this {spread_type} tarot spread for {sign}:
+        Cards: {', '.join(card['name'] for card in drawn_cards)}
+        Meanings: {' | '.join(card['meaning_up'] for card in drawn_cards)}
+        
+        Provide a concise 3-sentence reading:
+        1. Overall message
+        2. Zodiac-specific advice
+        3. Warning or opportunity
+        Use mystical language and emojis.
+        """)
+        
+        reading_text = extract_text_from_response(reading_response)
+        
+        return {
+            "sign": sign,
+            "cards": drawn_cards,
+            "reading": reading_text,
+            "date": datetime.now().strftime("%Y-%m-%d")
+        }
+        
+    except Exception as e:
+        return {
+            "error": f"🔴 Tarot error: {str(e)}",
+            "cards": drawn_cards,
+            "reading": "The cards whisper of technical difficulties."
+        }
 
 @app.route('/horoscope', methods=['GET'])
 def horoscope():
@@ -153,11 +233,13 @@ def horoscope():
             "category": category,
             "prediction": prediction,
             "date": datetime.now().strftime("%Y-%m-%d"),
-            "lucky_number": r.randint(1, 100)
+            "lucky_number": r.randint(1, 100),
+            "status": "success"
         })
     except Exception as e:
         return jsonify({
-            "error": "Our celestial connection failed",
+            "status": "error",
+            "message": "Our celestial connection failed",
             "details": str(e)
         }), 500
 
@@ -181,6 +263,7 @@ def save_horoscope():
     save_data(db)
     
     return jsonify(new_entry), 201
+
 @app.route('/horoscope/delete/<int:pred_id>', methods=['DELETE'])
 def delete_horoscope(pred_id):
     db = load_data()
@@ -191,6 +274,7 @@ def delete_horoscope(pred_id):
             return jsonify({"message": "Prediction deleted"}), 200
     
     return jsonify({"error": "Prediction not found"}), 404
+
 @app.route('/horoscope/saved', methods=['GET'])
 def list_saved():
     db = load_data()
@@ -199,6 +283,48 @@ def list_saved():
         "horoscopes": db["savedscope"]
     })
 
+@app.route('/tarot/daily', methods=['GET'])
+def daily_tarot():
+    sign = request.args.get('sign', '').capitalize()
+    if not sign or sign not in zodiac:
+        return jsonify({
+            "error": "Invalid zodiac sign",
+            "valid_signs": zodiac
+        }), 400
+    
+    try:
+        reading = generate_tarot_reading(sign)
+        return jsonify(reading)
+    except Exception as e:
+        return jsonify({
+            "error": str(e),
+            "cards": [],
+            "reading": "The cosmic energies are disrupted."
+        }), 500
+
+@app.route('/horoscope/tarot', methods=['GET'])
+def combined_horoscope():
+    sign = request.args.get('sign', '').capitalize()
+    category = request.args.get('category', 'general')
+    
+    if not sign or sign not in zodiac:
+        return jsonify({"error": "Invalid zodiac sign"}), 400
+    
+    try:
+        horo = generate(sign, category, include_tarot=True)
+        tarot = generate_tarot_reading(sign)
+        
+        return jsonify({
+            "horoscope": {
+                "sign": sign,
+                "category": category,
+                "prediction": horo,
+                "date": datetime.now().strftime("%Y-%m-%d")
+            },
+            "tarot_reading": tarot
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
