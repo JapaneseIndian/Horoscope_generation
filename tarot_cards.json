@@ -1,0 +1,548 @@
+[
+  {
+    "name": "The Fool",
+    "suit": "Major Arcana",
+    "keywords": ["Beginnings", "Spontaneity", "Innocence"],
+    "meaning_up": "New adventures, trusting the universe, taking a leap of faith",
+    "meaning_rev": "Recklessness, poor judgment, hesitation"
+  },
+  {
+    "name": "The Magician",
+    "suit": "Major Arcana",
+    "keywords": ["Manifestation", "Skill", "Willpower"],
+    "meaning_up": "Using talents to create reality, resourcefulness, power",
+    "meaning_rev": "Manipulation, untapped potential, trickery"
+  },
+  {
+    "name": "The High Priestess",
+    "suit": "Major Arcana",
+    "keywords": ["Intuition", "Mystery", "Subconscious"],
+    "meaning_up": "Hidden knowledge, inner voice, spiritual wisdom",
+    "meaning_rev": "Secrets, repressed intuition, silence"
+  },
+  {
+    "name": "The Empress",
+    "suit": "Major Arcana",
+    "keywords": ["Fertility", "Nature", "Abundance"],
+    "meaning_up": "Creativity, nurturing energy, sensual pleasure",
+    "meaning_rev": "Dependence, smothering, creative block"
+  },
+  {
+    "name": "The Emperor",
+    "suit": "Major Arcana",
+    "keywords": ["Authority", "Structure", "Control"],
+    "meaning_up": "Leadership, stability, logical approach",
+    "meaning_rev": "Tyranny, rigidity, excessive control"
+  },
+  {
+    "name": "The Hierophant",
+    "suit": "Major Arcana",
+    "keywords": ["Tradition", "Religion", "Conformity"],
+    "meaning_up": "Spiritual guidance, education, conventional wisdom",
+    "meaning_rev": "Rebellion, challenging norms, personal belief systems"
+  },
+  {
+    "name": "The Lovers",
+    "suit": "Major Arcana",
+    "keywords": ["Love", "Harmony", "Choices"],
+    "meaning_up": "Relationships, alignment of values, important decisions",
+    "meaning_rev": "Imbalance, misalignment, poor choices"
+  },
+  {
+    "name": "The Chariot",
+    "suit": "Major Arcana",
+    "keywords": ["Willpower", "Victory", "Determination"],
+    "meaning_up": "Overcoming challenges, focused direction, success through control",
+    "meaning_rev": "Lack of direction, aggression, defeat"
+  },
+  {
+    "name": "Strength",
+    "suit": "Major Arcana",
+    "keywords": ["Courage", "Patience", "Compassion"],
+    "meaning_up": "Inner strength, gentle control, emotional mastery",
+    "meaning_rev": "Self-doubt, weakness, insecurity"
+  },
+  {
+    "name": "The Hermit",
+    "suit": "Major Arcana",
+    "keywords": ["Soul-searching", "Introspection", "Guidance"],
+    "meaning_up": "Withdrawal for wisdom, spiritual enlightenment, solitude",
+    "meaning_rev": "Isolation, loneliness, rejecting advice"
+  },
+  {
+    "name": "Wheel of Fortune",
+    "suit": "Major Arcana",
+    "keywords": ["Change", "Cycles", "Fate"],
+    "meaning_up": "Turning point, destiny, life's ups and downs",
+    "meaning_rev": "Bad luck, resistance to change, lack of control"
+  },
+  {
+    "name": "Justice",
+    "suit": "Major Arcana",
+    "keywords": ["Fairness", "Truth", "Law"],
+    "meaning_up": "Cause and effect, accountability, truth revealed",
+    "meaning_rev": "Injustice, dishonesty, unfairness"
+  },
+  {
+    "name": "The Hanged Man",
+    "suit": "Major Arcana",
+    "keywords": ["Sacrifice", "New Perspective", "Waiting"],
+    "meaning_up": "Pause for enlightenment, surrendering control, different viewpoint",
+    "meaning_rev": "Stalling, resistance, wasted sacrifice"
+  },
+  {
+    "name": "Death",
+    "suit": "Major Arcana",
+    "keywords": ["Transformation", "Endings", "Change"],
+    "meaning_up": "Profound change, transition, rebirth",
+    "meaning_rev": "Resistance to change, stagnation, fear of endings"
+  },
+  {
+    "name": "Temperance",
+    "suit": "Major Arcana",
+    "keywords": ["Balance", "Moderation", "Harmony"],
+    "meaning_up": "Integration, patience, finding middle ground",
+    "meaning_rev": "Imbalance, excess, lack of long-term vision"
+  },
+  {
+    "name": "The Devil",
+    "suit": "Major Arcana",
+    "keywords": ["Bondage", "Materialism", "Shadow Self"],
+    "meaning_up": "Unhealthy attachments, addiction, limiting beliefs",
+    "meaning_rev": "Breaking free, reclaiming power, overcoming addiction"
+  },
+  {
+    "name": "The Tower",
+    "suit": "Major Arcana",
+    "keywords": ["Disruption", "Awakening", "Revelation"],
+    "meaning_up": "Sudden change, revelation, breaking illusions",
+    "meaning_rev": "Avoiding disaster, resisting change, fear of upheaval"
+  },
+  {
+    "name": "The Star",
+    "suit": "Major Arcana",
+    "keywords": ["Hope", "Inspiration", "Serenity"],
+    "meaning_up": "Renewed faith, healing, spiritual guidance",
+    "meaning_rev": "Discouragement, lack of faith, despair"
+  },
+  {
+    "name": "The Moon",
+    "suit": "Major Arcana",
+    "keywords": ["Illusion", "Intuition", "Subconscious"],
+    "meaning_up": "Uncertainty, intuition, facing fears",
+    "meaning_rev": "Deception, confusion, releasing fear"
+  },
+  {
+    "name": "The Sun",
+    "suit": "Major Arcana",
+    "keywords": ["Joy", "Success", "Vitality"],
+    "meaning_up": "Happiness, achievement, positivity",
+    "meaning_rev": "Temporary setbacks, excessive optimism"
+  },
+  {
+    "name": "Judgement",
+    "suit": "Major Arcana",
+    "keywords": ["Awakening", "Absolution", "Reckoning"],
+    "meaning_up": "Spiritual awakening, renewal, inner calling",
+    "meaning_rev": "Self-doubt, ignoring the call, fear of change"
+  },
+  {
+    "name": "The World",
+    "suit": "Major Arcana",
+    "keywords": ["Completion", "Wholeness", "Achievement"],
+    "meaning_up": "Fulfillment, harmony, accomplishment",
+    "meaning_rev": "Incompletion, lack of closure, fear of success"
+  },
+  {
+    "name": "Ace of Wands",
+    "suit": "Wands",
+    "keywords": ["Inspiration", "New Passion", "Energy"],
+    "meaning_up": "Creative spark, new venture, enthusiasm",
+    "meaning_rev": "Delays, lack of motivation, false starts"
+  },
+  {
+    "name": "Two of Wands",
+    "suit": "Wands",
+    "keywords": ["Planning", "Future", "Discovery"],
+    "meaning_up": "Future planning, progress, bold decisions",
+    "meaning_rev": "Fear of unknown, lack of planning"
+  },
+  {
+    "name": "Three of Wands",
+    "suit": "Wands",
+    "keywords": ["Expansion", "Foresight", "Opportunity"],
+    "meaning_up": "Progress, foresight, overseas opportunities",
+    "meaning_rev": "Obstacles, delays, frustration"
+  },
+  {
+    "name": "Four of Wands",
+    "suit": "Wands",
+    "keywords": ["Celebration", "Harmony", "Home"],
+    "meaning_up": "Celebration, joy, harmony",
+    "meaning_rev": "Transition, lack of support, instability"
+  },
+  {
+    "name": "Five of Wands",
+    "suit": "Wands",
+    "keywords": ["Conflict", "Competition", "Disagreement"],
+    "meaning_up": "Healthy competition, creative differences",
+    "meaning_rev": "Avoiding conflict, lack of competition"
+  },
+  {
+    "name": "Six of Wands",
+    "suit": "Wands",
+    "keywords": ["Victory", "Success", "Recognition"],
+    "meaning_up": "Public recognition, progress, pride",
+    "meaning_rev": "Lack of recognition, personal achievements"
+  },
+  {
+    "name": "Seven of Wands",
+    "suit": "Wands",
+    "keywords": ["Challenge", "Defense", "Perseverance"],
+    "meaning_up": "Standing your ground, protecting position",
+    "meaning_rev": "Giving up, overwhelmed, defensive"
+  },
+  {
+    "name": "Eight of Wands",
+    "suit": "Wands",
+    "keywords": ["Movement", "Speed", "Action"],
+    "meaning_up": "Rapid action, travel, quick decisions",
+    "meaning_rev": "Delays, frustration, waiting"
+  },
+  {
+    "name": "Nine of Wands",
+    "suit": "Wands",
+    "keywords": ["Resilience", "Persistence", "Last Stand"],
+    "meaning_up": "Inner strength, perseverance, resilience",
+    "meaning_rev": "Exhaustion, defensiveness, paranoia"
+  },
+  {
+    "name": "Ten of Wands",
+    "suit": "Wands",
+    "keywords": ["Burden", "Responsibility", "Hard Work"],
+    "meaning_up": "Carrying a heavy load, completion",
+    "meaning_rev": "Overcommitment, struggle, releasing burdens"
+  },
+  {
+    "name": "Page of Wands",
+    "suit": "Wands",
+    "keywords": ["Exploration", "Excitement", "Free Spirit"],
+    "meaning_up": "New ideas, adventurous spirit, enthusiasm",
+    "meaning_rev": "Lack of direction, procrastination"
+  },
+  {
+    "name": "Knight of Wands",
+    "suit": "Wands",
+    "keywords": ["Energy", "Passion", "Adventure"],
+    "meaning_up": "Action, impulsiveness, adventure",
+    "meaning_rev": "Haste, scattered energy, frustration"
+  },
+  {
+    "name": "Queen of Wands",
+    "suit": "Wands",
+    "keywords": ["Courage", "Determination", "Vibrancy"],
+    "meaning_up": "Confidence, independence, warmth",
+    "meaning_rev": "Insecurity, jealousy, selfishness"
+  },
+  {
+    "name": "King of Wands",
+    "suit": "Wands",
+    "keywords": ["Leadership", "Vision", "Big Picture"],
+    "meaning_up": "Natural leader, overcoming challenges",
+    "meaning_rev": "Impulsiveness, poor leadership"
+  },
+  {
+    "name": "Ace of Cups",
+    "suit": "Cups",
+    "keywords": ["Emotions", "Intuition", "Love"],
+    "meaning_up": "New feelings, spiritual awakening",
+    "meaning_rev": "Emotional imbalance, blocked intuition"
+  },
+  {
+    "name": "Two of Cups",
+    "suit": "Cups",
+    "keywords": ["Unity", "Partnership", "Connection"],
+    "meaning_up": "Mutual attraction, harmony, partnership",
+    "meaning_rev": "Imbalance, broken communication"
+  },
+  {
+    "name": "Three of Cups",
+    "suit": "Cups",
+    "keywords": ["Celebration", "Friendship", "Community"],
+    "meaning_up": "Friendship, celebration, collaborations",
+    "meaning_rev": "Gossip, isolation, overindulgence"
+  },
+  {
+    "name": "Four of Cups",
+    "suit": "Cups",
+    "keywords": ["Apathy", "Contemplation", "Disconnection"],
+    "meaning_up": "Meditation, reevaluation, withdrawal",
+    "meaning_rev": "New opportunities, awareness"
+  },
+  {
+    "name": "Five of Cups",
+    "suit": "Cups",
+    "keywords": ["Loss", "Grief", "Disappointment"],
+    "meaning_up": "Regret, focus on loss, mourning",
+    "meaning_rev": "Acceptance, moving on, finding peace"
+  },
+  {
+    "name": "Six of Cups",
+    "suit": "Cups",
+    "keywords": ["Nostalgia", "Memories", "Innocence"],
+    "meaning_up": "Revisiting the past, childhood memories",
+    "meaning_rev": "Living in the past, stagnation"
+  },
+  {
+    "name": "Seven of Cups",
+    "suit": "Cups",
+    "keywords": ["Choices", "Illusion", "Fantasy"],
+    "meaning_up": "Many options, wishful thinking",
+    "meaning_rev": "Clarity, decision making"
+  },
+  {
+    "name": "Eight of Cups",
+    "suit": "Cups",
+    "keywords": ["Abandonment", "Withdrawal", "Disappointment"],
+    "meaning_up": "Walking away, spiritual search",
+    "meaning_rev": "Avoidance, fear of change"
+  },
+  {
+    "name": "Nine of Cups",
+    "suit": "Cups",
+    "keywords": ["Contentment", "Satisfaction", "Gratitude"],
+    "meaning_up": "Wishes fulfilled, comfort, happiness",
+    "meaning_rev": "Smugness, dissatisfaction"
+  },
+  {
+    "name": "Ten of Cups",
+    "suit": "Cups",
+    "keywords": ["Happiness", "Family", "Harmony"],
+    "meaning_up": "Divine love, blissful relationships",
+    "meaning_rev": "Broken home, misalignment"
+  },
+  {
+    "name": "Page of Cups",
+    "suit": "Cups",
+    "keywords": ["Sensitivity", "Intuition", "Creativity"],
+    "meaning_up": "Creative opportunities, intuitive messages",
+    "meaning_rev": "Creative blocks, emotional immaturity"
+  },
+  {
+    "name": "Knight of Cups",
+    "suit": "Cups",
+    "keywords": ["Romance", "Charm", "Idealism"],
+    "meaning_up": "Romantic gestures, creativity, charm",
+    "meaning_rev": "Moodiness, disappointment"
+  },
+  {
+    "name": "Queen of Cups",
+    "suit": "Cups",
+    "keywords": ["Compassion", "Emotional Balance", "Intuition"],
+    "meaning_up": "Emotional stability, nurturing, compassion",
+    "meaning_rev": "Martyrdom, insecurity"
+  },
+  {
+    "name": "King of Cups",
+    "suit": "Cups",
+    "keywords": ["Emotional Control", "Diplomacy", "Balance"],
+    "meaning_up": "Compassionate leader, emotional balance",
+    "meaning_rev": "Emotional manipulation, moodiness"
+  },
+  {
+    "name": "Ace of Swords",
+    "suit": "Swords",
+    "keywords": ["Clarity", "Truth", "Breakthrough"],
+    "meaning_up": "Mental clarity, new ideas, truth",
+    "meaning_rev": "Confusion, chaos, miscommunication"
+  },
+  {
+    "name": "Two of Swords",
+    "suit": "Swords",
+    "keywords": ["Indecision", "Stalemate", "Blocked Emotions"],
+    "meaning_up": "Difficult choices, indecision",
+    "meaning_rev": "Indecision, confusion, release"
+  },
+  {
+    "name": "Three of Swords",
+    "suit": "Swords",
+    "keywords": ["Heartbreak", "Grief", "Pain"],
+    "meaning_up": "Heartbreak, emotional pain, sorrow",
+    "meaning_rev": "Recovery, forgiveness, moving on"
+  },
+  {
+    "name": "Four of Swords",
+    "suit": "Swords",
+    "keywords": ["Rest", "Recovery", "Contemplation"],
+    "meaning_up": "Relaxation, meditation, recuperation",
+    "meaning_rev": "Restlessness, burnout, stress"
+  },
+  {
+    "name": "Five of Swords",
+    "suit": "Swords",
+    "keywords": ["Conflict", "Defeat", "Tension"],
+    "meaning_up": "Unhealthy competition, winning at all costs",
+    "meaning_rev": "Reconciliation, making amends"
+  },
+  {
+    "name": "Six of Swords",
+    "suit": "Swords",
+    "keywords": ["Transition", "Moving On", "Release"],
+    "meaning_up": "Moving towards calmer waters, transition",
+    "meaning_rev": "Resistance to change, unresolved issues"
+  },
+  {
+    "name": "Seven of Swords",
+    "suit": "Swords",
+    "keywords": ["Deception", "Betrayal", "Strategy"],
+    "meaning_up": "Deception, trickery, tactics",
+    "meaning_rev": "Coming clean, truth revealed"
+  },
+  {
+    "name": "Eight of Swords",
+    "suit": "Swords",
+    "keywords": ["Restriction", "Powerlessness", "Self-Limitation"],
+    "meaning_up": "Feeling trapped, self-imposed restriction",
+    "meaning_rev": "New perspective, freedom"
+  },
+  {
+    "name": "Nine of Swords",
+    "suit": "Swords",
+    "keywords": ["Anxiety", "Worry", "Fear"],
+    "meaning_up": "Nightmares, stress, guilt",
+    "meaning_rev": "Recovery, hope, facing fears"
+  },
+  {
+    "name": "Ten of Swords",
+    "suit": "Swords",
+    "keywords": ["Failure", "Rock Bottom", "Betrayal"],
+    "meaning_up": "Painful endings, deep wounds, betrayal",
+    "meaning_rev": "Recovery, regeneration, new beginnings"
+  },
+  {
+    "name": "Page of Swords",
+    "suit": "Swords",
+    "keywords": ["Curiosity", "New Ideas", "Communication"],
+    "meaning_up": "New ideas, curiosity, mental energy",
+    "meaning_rev": "Gossip, haste, scattered thoughts"
+  },
+  {
+    "name": "Knight of Swords",
+    "suit": "Swords",
+    "keywords": ["Action", "Ambition", "Assertiveness"],
+    "meaning_up": "Quick thinking, action-oriented, ambitious",
+    "meaning_rev": "Aggression, impulsiveness"
+  },
+  {
+    "name": "Queen of Swords",
+    "suit": "Swords",
+    "keywords": ["Independence", "Clarity", "Directness"],
+    "meaning_up": "Clear boundaries, honest communication",
+    "meaning_rev": "Coldness, bitterness, harshness"
+  },
+  {
+    "name": "King of Swords",
+    "suit": "Swords",
+    "keywords": ["Authority", "Truth", "Discipline"],
+    "meaning_up": "Mental clarity, intellectual power",
+    "meaning_rev": "Manipulation, cruelty, abuse of power"
+  },
+  {
+    "name": "Ace of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Opportunity", "Prosperity", "New Venture"],
+    "meaning_up": "New financial opportunity, prosperity",
+    "meaning_rev": "Missed opportunity, lack of planning"
+  },
+  {
+    "name": "Two of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Balance", "Adaptability", "Priorities"],
+    "meaning_up": "Balancing resources, adaptability",
+    "meaning_rev": "Disorganization, financial loss"
+  },
+  {
+    "name": "Three of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Teamwork", "Collaboration", "Learning"],
+    "meaning_up": "Teamwork, apprenticeship, shared goals",
+    "meaning_rev": "Lack of teamwork, poor quality work"
+  },
+  {
+    "name": "Four of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Conservation", "Security", "Control"],
+    "meaning_up": "Saving money, frugality, security",
+    "meaning_rev": "Greed, materialism, stinginess"
+  },
+  {
+    "name": "Five of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Need", "Poverty", "Isolation"],
+    "meaning_up": "Financial loss, poverty, hardship",
+    "meaning_rev": "Recovery, charity, improvement"
+  },
+  {
+    "name": "Six of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Charity", "Generosity", "Sharing"],
+    "meaning_up": "Giving/receiving, generosity, charity",
+    "meaning_rev": "Power dynamics, strings attached"
+  },
+  {
+    "name": "Seven of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Patience", "Investment", "Long-Term Vision"],
+    "meaning_up": "Long-term view, perseverance, investment",
+    "meaning_rev": "Lack of reward, impatience"
+  },
+  {
+    "name": "Eight of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Apprenticeship", "Diligence", "Craftsmanship"],
+    "meaning_up": "Skill development, craftsmanship, quality",
+    "meaning_rev": "Perfectionism, lack of passion"
+  },
+  {
+    "name": "Nine of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Luxury", "Self-Sufficiency", "Abundance"],
+    "meaning_up": "Financial independence, leisure, luxury",
+    "meaning_rev": "Financial dependence, overspending"
+  },
+  {
+    "name": "Ten of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Legacy", "Wealth", "Family"],
+    "meaning_up": "Wealth, family, long-term success",
+    "meaning_rev": "Financial failure, family conflict"
+  },
+  {
+    "name": "Page of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Manifestation", "Opportunity", "New Venture"],
+    "meaning_up": "New financial opportunity, learning",
+    "meaning_rev": "Lack of progress, procrastination"
+  },
+  {
+    "name": "Knight of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Efficiency", "Hard Work", "Responsibility"],
+    "meaning_up": "Reliability, methodical approach",
+    "meaning_rev": "Laziness, boredom, stagnation"
+  },
+  {
+    "name": "Queen of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Practicality", "Nurturing", "Prosperity"],
+    "meaning_up": "Nurturing, practical, financially secure",
+    "meaning_rev": "Smothering, materialistic"
+  },
+  {
+    "name": "King of Pentacles",
+    "suit": "Pentacles",
+    "keywords": ["Abundance", "Security", "Leadership"],
+    "meaning_up": "Wealth, business, leadership",
+    "meaning_rev": "Greed, materialism, poor management"
+  }
+]
