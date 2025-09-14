@@ -33,12 +33,12 @@ This project is a Horoscope Generator API that provides daily horoscopes for all
 ## 🏗️ Architecture
 ```
 horoscope/
-├── backend/
+├── Backend/
 │   ├── app.py                 # Flask application with all API endpoints
 │   ├── horoscope_data.json    # Database for saved predictions
 │   ├── tarot_cards.json       # Tarot card definitions and meanings
 │   └── requirements.txt       # Python dependencies
-├── frontend/
+├── Frontend/
 │   └── app.py                # Streamlit frontend application
 └── README.md
 ```
