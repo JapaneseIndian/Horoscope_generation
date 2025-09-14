@@ -52,7 +52,7 @@ horoscope/
 
 * Tarot Card Readings: Receive mystical tarot card interpretations tailored to your zodiac sign
 
-  ## Horoscope Endpoints
+## Horoscope Endpoints
 * GET /horoscope?sign=<sign>&category=<category> - Get a horoscope for a specific sign and category
 
 * POST /horoscope/save - Save a horoscope prediction
@@ -66,8 +66,8 @@ horoscope/
 
 * GET /horoscope/tarot?sign=<sign>&category=<category> - Get combined horoscope and tarot reading
 
-##🐛 Troubleshooting
-###Common Issues
+## 🐛 Troubleshooting
+### Common Issues
 1. API Key Errors: Ensure your Google API key is valid and properly set in the .env file
 
 2. Connection Errors: Verify the backend is running before starting the frontend
