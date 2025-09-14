@@ -30,7 +30,7 @@ This project is a Horoscope Generator API that provides daily horoscopes for all
    streamlit run ui.py
    ```
 
-##🏗️ Architecture
+## 🏗️ Architecture
 ```
 horoscope/
 ├── backend/
